@@ -8,6 +8,7 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+// ITARATIVE WAY
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
@@ -23,3 +24,18 @@ public:
         return prev;
     }
 };
+//USING RECURSION
+class abc {
+public:
+ListNode* reverseLinkedList(ListNode* head) {
+    if (head == NULL || head->next == NULL) {
+        return head;
+    }
+    ListNode* newHead = reverseLinkedList(head->next);
+    ListNode* front = head->next;
+    front->next = head;
+    head->next = NULL;
+    return newHead;
+}
+};
+
